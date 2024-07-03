@@ -3,10 +3,10 @@
 set -e
 
 SSHD_CONFIG_FILEPATH="${SSHD_CONFIG_FILEPATH:-/etc/ssh/sshd_config}"
-SSH_SERVERKEYS_FILEPATH="${SSH_SERVERKEYS_FILEPATH_LIST:-/etc/ssh/ssh_host_rsa_key}"
+SSH_HOSTKEY_FILEPATH="${SSH_HOSTKEY_FILEPATH:-/etc/ssh/ssh_host_rsa_key}"
 
 ## update the sshd_config file
-echo "HostKey ${SSH_SERVERKEYS_FILEPATH}" >> "${SSHD_CONFIG_FILEPATH}"
+echo "HostKey ${SSH_HOSTKEY_FILEPATH}" >> "${SSHD_CONFIG_FILEPATH}"
 echo "PubkeyAuthentication yes" >> "${SSHD_CONFIG_FILEPATH}"
 echo "PasswordAuthentication no" >> "${SSHD_CONFIG_FILEPATH}"
 echo "PermitRootLogin yes" >> "${SSHD_CONFIG_FILEPATH}"
