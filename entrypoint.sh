@@ -3,7 +3,7 @@
 set -e
 
 SSHD_CONFIG_FILEPATH="${SSHD_CONFIG_FILEPATH:-/etc/ssh/sshd_config}"
-SSH_HOSTKEY_FILEPATH="${SSH_HOSTKEY_FILEPATH:-/etc/ssh/ssh_host_rsa_key}"
+SSH_HOSTKEY_FILEPATH="${SSH_HOSTKEY_FILEPATH:-/etc/ssh/ssh_host_key}"
 
 ## update the sshd_config file
 echo "HostKey ${SSH_HOSTKEY_FILEPATH}" >> "${SSHD_CONFIG_FILEPATH}"
