@@ -24,8 +24,8 @@ chmod 0600 "${SSH_AUTHKEYS_FILEPATH}"
 ## change the root password
 echo "root:$(openssl rand -hex 12)" | chpasswd
 
-service sshd start
-service autofs start
+systemctl start ssh
+systemctl start autofs
 
 ssh -NTC ${SSH_OPTS} -i ${SSH_KEY} \
     -o 'UserKnownHostsFile=/dev/null' -o 'StrictHostKeyChecking=no' \
