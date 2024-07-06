@@ -28,6 +28,8 @@ ssh -NTC ${SSH_OPTS} -i ${SSH_KEY} \
     -o 'UserKnownHostsFile=/dev/null' -o 'StrictHostKeyChecking=no' \
 	-o 'ServerAliveInterval=300' -o 'ExitOnForwardFailure=yes' ${SSH_DEST} &
 
+sleep 10
+
 MOUNT_SH="${MOUNT_SH:-/conf/mount.sh}"
 if [ -f ${MOUNT_SH} ]; then
     echo "execute ${MOUNT_SH}."
