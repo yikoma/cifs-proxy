@@ -28,4 +28,12 @@ ssh -NTC ${SSH_OPTS} -i ${SSH_KEY} \
     -o 'UserKnownHostsFile=/dev/null' -o 'StrictHostKeyChecking=no' \
 	-o 'ServerAliveInterval=300' -o 'ExitOnForwardFailure=yes' ${SSH_DEST} &
 
+MOUNT_SH="${MOUNT_SH:-/conf/mount.sh}"
+if [ -f ${MOUNT_SH} ]; do
+    echo "execute ${MOUNT_SH}."
+    sh ${MOUNT_SH}
+else
+    echo "${MOUNT_SH}: not found."
+fi
+
 exec /usr/sbin/sshd -D
