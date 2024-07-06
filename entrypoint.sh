@@ -29,7 +29,7 @@ ssh -NTC ${SSH_OPTS} -i ${SSH_KEY} \
 	-o 'ServerAliveInterval=300' -o 'ExitOnForwardFailure=yes' ${SSH_DEST} &
 
 MOUNT_SH="${MOUNT_SH:-/conf/mount.sh}"
-if [ -f ${MOUNT_SH} ]; do
+if [ -f ${MOUNT_SH} ]; then
     echo "execute ${MOUNT_SH}."
     sh ${MOUNT_SH}
 else
